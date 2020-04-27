@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import TimeNow from './TimeNow.js';
 import Countdown from './Countdown.js';
 
 
@@ -8,7 +9,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h3>It is {new Date().toLocaleString('de-DE')}.</h3>
+          <TimeNow />
           <Countdown />
         </header>
       </div>

@@ -1,22 +1,28 @@
 import React from 'react';
 import Logo from './Logo.js';
+import Timer from './Timer.js';
+// import FunctionSubmit from './FunctionSubmit.js';
 
 class Countdown extends React.Component {
 	constructor(props) {
 		super(props);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleChange = this.handleChange.bind(this);
 		this.state = {
-			eventName: "Enter event name",
-			date: "",
+			eventName: "name",
 			time: "00:00"
 		};
-
-		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleInputChange = this.handleInputChange.bind(this);
 	}
 
-	handleInputChange(event) {
-		const target = event.target;
-		const value = target.name
+	handleSubmit(event) {
+		console.log('Sumit clicked')
+  	alert('Following event has been created: ' + this.state.eventName + ' at ' + this.state.date + " " + this.state.time);
+  	event.preventDefault();
+  }
+
+	handleChange(event) {
+		// const target = event.target;
+		// const value = target.name
 
   	this.setState({
 			eventName: event.target.value,
@@ -25,44 +31,41 @@ class Countdown extends React.Component {
 		});
 	}
 
-  handleSubmit(event) {
-  	alert('Following event has been created: ' + this.state.eventName + ' at ' + this.state.date + " " + this.state.time);
-  	event.preventDefault();
-  }
 
 	render() {
-		return	<div>
-							<div>
-								<form onSubmit={this.handleSubmit}>
-									<label>
-				            Name:
-				            <input  name="eventName" type="text" placeholder={this.state.eventName}  
-				            	onChange={this.handleInputChange.bind(this)} required />
-				            Date:
-				            <input  name="date" type="date"  required 
-				            	onChange={this.handleInputChange.bind(this)} />
-				            Time:
-				            <input name="time" type="time"  placeholder={this.state.time}
-				            	onChange={this.handleInputChange.bind(this)} />
-				          <br />
-									</label>
-				          	<input type="submit" value="Submit" />
-			      		</form>
-							</div>
+		// const {eventName, date, time} = this.state;
+		return	(
+			<div>
+				<div>
+					<form>
+						<fieldset>
+							<legend>Enter event name</legend>
+								<label>Name:<input  name="eventName" type="text" placeholder={this.state.eventName}  
+			            	onChange={this.handleChange} 
+			            	required />
+			            	<br />
+			            Date:<input  name="date" type="date"  required 
+			            	onChange={this.handleChange} 
+			            	/><br />
+			            Time:<input name="time" type="time"  placeholder={this.state.time}
+			            	onChange={this.handleChange} />
+			            	<br /><br />
+								</label>
+									<input type="submit" value="Submit" onSubmit={this.handleSubmit} />
+						</fieldset>
+      		</form>
+				</div>
+					<Logo />
+				<hr />
+      		<div className='resultContainer'> 
+						Countdown of
+						<br /> 
+						<strong>{this.state.eventName}</strong>
+						<Timer />
 						<hr />
-							<Logo />
-						<hr />
-		      		<div> 
-								Countdown of {this.state.eventName}
-						<hr />
-								year {new Date().getFullYear()}
-								months {new Date().getMonth() + 1}
-								days {new Date().getDate()}
-								hours {new Date().getHours()}
-								minutes {new Date().getMinutes()}
-								seconds {new Date().getSeconds()}
-							</div>
-						</div>
+					</div>
+			</div>
+		);
 	}
 }
 

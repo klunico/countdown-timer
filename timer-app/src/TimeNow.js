@@ -4,21 +4,26 @@ class TimeNow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: new Date().toLocaleString('de-DE')
+      date: new Date().toLocaleDateString('de-DE'),
+      time: new Date().toLocaleTimeString('de-DE')
     };
   }
 
   componentDidMount = () => {
     setInterval(() => {
       this.setState(prevState => ({
-        time: new Date().toLocaleString('de-DE'),
+        date: new Date().toLocaleDateString('de-DE'),
+        time: new Date().toLocaleTimeString('de-DE'),
       }));
     } ,1000);
   };
 
   render () {
+    const { date, time } = this.state;
     return (
-        <h3>It is {this.state.time}</h3>
+        <h3>It is <br /> 
+        {date}<br />
+        {time}</h3>
     );
   }
 }
