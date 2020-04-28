@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from './Logo.js';
 import Timer from './Timer.js';
-// import FunctionSubmit from './FunctionSubmit.js';
+
 
 class Countdown extends React.Component {
 	constructor(props) {
@@ -10,12 +10,13 @@ class Countdown extends React.Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.state = {
 			eventName: "name",
-			time: "00:00"
+			time: "00:00",
+			date: new Date()
 		};
 	}
 
 	handleSubmit(event) {
-		console.log('Sumit clicked')
+		console.log(event)
   	alert('Following event has been created: ' + this.state.eventName + ' at ' + this.state.date + " " + this.state.time);
   	event.preventDefault();
   }
@@ -23,11 +24,8 @@ class Countdown extends React.Component {
 	handleChange(event) {
 		// const target = event.target;
 		// const value = target.name
-
   	this.setState({
-			eventName: event.target.value,
-			date: event.target.value,
-			time: event.target.value
+			[event.target.name]: event.target.value
 		});
 	}
 
@@ -51,7 +49,9 @@ class Countdown extends React.Component {
 			            	onChange={this.handleChange} />
 			            	<br /><br />
 								</label>
-									<input type="submit" value="Submit" onSubmit={this.handleSubmit} />
+									<input type="submit" value="Submit" 
+									onSubmit={this.handleSubmit} 
+									/>
 						</fieldset>
       		</form>
 				</div>
@@ -61,7 +61,9 @@ class Countdown extends React.Component {
 						Countdown of
 						<br /> 
 						<strong>{this.state.eventName}</strong>
-						<Timer />
+						<Timer 
+							date={this.state.date}
+							eventName={this.state.eventName}/>
 						<hr />
 					</div>
 			</div>
