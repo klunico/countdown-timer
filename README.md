@@ -5,9 +5,8 @@ User Stories
 
     User can see an event input box containing an event name field, a date field, an optional time, and a ‘Start’ button.
     
-    User can define the event by entering its name, the date it is scheduled to take place, and an optional time of the event.
+    User can define the event by entering its name, the date it is scheduled to take place, and an optional time of the event. If the time is omitted it is assumed to be at Midnight on the event date in the local time zone.
     
-    If the time is omitted it is assumed to be at Midnight on the event date in the local time zone.
     User can see a warning message if the event name is blank.
 
     User can see a warning message if the event date or time are incorrectly entered.
