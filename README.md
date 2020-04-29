@@ -11,7 +11,6 @@ User Stories
 
     User can click on the ‘Start’ button to see the countdown timer start displaying the days, hours, minutes, and seconds until the event takes place.
 
-    User can click on the ‘Start’ button to see the countdown timer start displaying the days, hours, minutes, and seconds until the event takes place.
     User can see the elements in the countdown timer automatically decrement. For example, when the remaining seconds count reaches 0 the remaining minutes count will decrement by 1 and the seconds will start to countdown from 59. This progression must take place from seconds all the way up to the remaining days position in countdown display.
 
 Bonus features
@@ -30,4 +29,4 @@ Acceptance criteria
 
 Complete all user stories.
 
-CASE: User can enter a name and the date of an event. Timer will continuously decrement after the Start button is pressed in the following format: months, days, hours, minutes, and seconds until the event takes place.
+CASE: User can enter a name and the date of an event. Timer will continuously decrement after the Start button is pressed in the following format: days, hours, minutes, and seconds until the event takes place.
