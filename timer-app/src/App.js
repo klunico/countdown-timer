@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import TimeNow from './TimeNow.js';
-import Countdown from './Countdown.js';
+import Logo from './Logo.js';
+import InputForm from './InputForm.js';
 
 
 class App extends React.Component {
@@ -10,7 +11,8 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <TimeNow />
-          <Countdown />
+          <Logo />
+          <InputForm />
         </header>
       </div>
     );

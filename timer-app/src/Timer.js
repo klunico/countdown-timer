@@ -1,53 +1,58 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 
-class Timer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    	// year: new Date().getFullYear(),
-    	// month: new Date().getMonth(),
-    	// days: new Date().getDay(),
-    	// hours: new Date().getHours(),
-    	// minutes: new Date().getMinutes(),
-    	// seconds: new Date().getSeconds()
-    };
-  }
+// const Timer = ({eventDate, eventName}) => {
+const Timer = ({eventName, eventDate, eventTime, eventStarted}) => {
+  const [state, setState] = useState({
+    		days: 0,
+	    	hours: 0,
+	    	minutes: 0,
+	    	seconds: 0
+    });
 
-  // calculateTime()
+	const calculateTime = () => {
+	  // const now = new Date().getTime();
+	  const now = new Date(eventDate,  eventTime);
+	  console.log(eventDate);
+	  console.log(eventTime);
+	  console.log(now);
+	  const tomorrow = eventDate?.getTime() ?? 0;
+	  const distance = tomorrow - now;
 
+	  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  componentDidMount = () => {
-  	console.log(this.props.date, this.props.eventName)
+	  setState({
+	    	days: days,
+	    	hours: hours,
+	    	minutes: minutes,
+	    	seconds: seconds
+    });
+	}
+
+  useEffect(() => {
+  	if (!eventStarted) {
+			return;
+		}
     setInterval(() => {
-      this.setState(prevState => ({
-
-      //   year: new Date().getFullYear(),
-	    	// month: new Date().getMonth(),
-	    	// days: new Date().getDay(),
-	    	// hours: new Date().getHours(),
-	    	// minutes: new Date().getMinutes(),
-	    	// seconds: new Date().getSeconds()
-      }));
+      calculateTime();
     } ,1000);
-  };
+  },[eventStarted]);
 
-  render () {
-    const { year, month, days, hours, minutes, seconds } = this.state;
-    // console.log(this.state.date)
-    return	<div>
-							year {year} 
-							<br />
-							months {month}
-							<br />
-							days {days}
-							<br />
-							hours {hours}
-							<br />
-							minutes {minutes}
-							<br />
-							seconds {seconds}
-						</div>
-  }
-}
+  return	(
+  	<div>
+			{eventName}
+			<br />
+			days {state.days}
+			<br />
+			hours {state.hours}
+			<br />
+			minutes {state.minutes}
+			<br />
+			seconds {state.seconds}
+		</div>
+	);
+};
   
 export default Timer;
