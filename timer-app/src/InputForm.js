@@ -1,5 +1,4 @@
 import React from 'react';
-// import EventOutput from './EventOutput.js';
 import Timer from './Timer.js';
 
 
