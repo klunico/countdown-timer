@@ -1,5 +1,5 @@
 import React from 'react';
-import EventOutput from './EventOutput.js';
+// import EventOutput from './EventOutput.js';
 import Timer from './Timer.js';
 
 
@@ -51,8 +51,8 @@ class InputForm extends React.Component {
 									onClick={this.handleSubmit} 
 									/>
 						</fieldset>
-      		</form>
-					<EventOutput
+      		</form>	
+					<Timer
 						eventName={this.state.eventName} 
 						eventDate={this.state.date}
 						eventTime={this.state.time}
