@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import '../css/App.css';
 import TimeNow from './TimeNow.js';
 import Logo from './Logo.js';
 import InputForm from './InputForm.js';
@@ -11,9 +11,9 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <TimeNow />
-          <Logo />
-          <InputForm />
         </header>
+          <InputForm />
+          <Logo />
       </div>
     );
   }

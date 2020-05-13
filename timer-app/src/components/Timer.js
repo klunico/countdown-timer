@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react';
+import '../css/Timer.scss'
 
 
 const Timer = ({eventName, eventDate, eventTime, eventStarted}) => {
@@ -31,32 +32,40 @@ const Timer = ({eventName, eventDate, eventTime, eventStarted}) => {
 		}
     setInterval(() => {
       calculateTime();
-      if (this.state.distance<=0){
-      	clearInterval(calculateTime);
-      }
     } ,1000);
   },[eventStarted]);
 
   return	(
   	<div>
-  		<div className='result-container'> 
+  		<div className='title'> 
 				Countdown of
-				<br /> 
-				<strong>How is this not showing?</strong>
-				<br /> 
-				<hr />
-			</div>
-	  	<div className='result'>
-				{eventName}
-				<hr />
-				<div className='day-box'>
-				{state.days} {state.days === 1 ? 'day' : 'days'}</div>
-				<hr />
-				<div className='hour-box'>{state.hours} hours</div>
-				<hr />
-				<div className='minute-box'>{state.minutes} minutes</div>
-				<hr />
-				<div className='second-box'>{state.seconds} seconds</div>
+				<h2>{eventName}</h2>
+		</div>
+			<div className="clock-container">
+			  <div className="clock-col">
+			    <p className="clock-day">{state.days}</p>
+			    <p className="clock-label">
+			      {state.days === 1 ? 'Day' : 'Days'}
+			    </p>
+			  </div>
+			  <div className="clock-col">
+			    <p className="clock-hours">{state.hours}</p>
+			    <p className="clock-label">
+			      Hours
+			    </p>
+			  </div>
+			  <div className="clock-col">
+			    <p className="clock-minutes">{state.minutes}</p>
+			    <p className="clock-label">
+			    	Minutes
+			    </p>
+			  </div>
+			  <div className="clock-col">
+			    <p className="clock-seconds">{state.seconds}</p>
+			    <p className="clock-label">
+			      Seconds
+			    </p>
+			  </div>
 			</div>
 		</div>
 	);

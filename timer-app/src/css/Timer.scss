@@ -1,0 +1,89 @@
+.title {
+	text-align: center;
+  color: #fff;
+  font-size: 2.2rem;
+}
+
+.clock {
+  &-day {
+      color: #fff;
+      font-size: 4.2rem;
+      text-transform: uppercase;
+      margin: 24px;
+  }
+  &-hours {
+      color: #fff;
+      font-size: 4.2rem;
+      text-transform: uppercase;
+      margin: 24px;
+  }
+  &-minutes {
+      color: #fff;
+      font-size: 4.2rem;
+      text-transform: uppercase;
+      margin: 24px;
+  }
+  &-seconds {
+      color: #fff;
+      font-size: 4.2rem;
+      text-transform: uppercase;
+      margin: 24px;
+  }
+}
+
+.clock {
+  &-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #080808;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(255,255,255,.15), 0 15px 90px 30px rgba(0,0,0,.25);
+    display: flex;
+  }
+  &-col {
+    text-align: center;
+    margin-right: 40px;
+    margin-left: 40px;
+    min-width: 90px;
+    position: relative;
+    &:not(:last-child):before,
+    &:not(:last-child):after{
+      content: "";
+      background-color: rgba(255,255,255,.3);
+      height: 5px;
+      width: 5px;
+      border-radius: 50%;
+      display: block;
+      position: absolute;
+      right: -42px;
+    }
+    &:not(:last-child):before {
+      top: 35%;
+    }
+    &:not(:last-child):after {
+      top: 50%;
+    }
+  }
+
+  &-label {
+    color: rgba(255,255,255,.35);
+    text-transform: uppercase;
+    font-size: .7rem;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 825px) {
+  .clock-container {
+  flex-direction: column;
+  }
+  .clock-col {
+    & + & {
+      margin-top: 20px;
+    }
+    &:before,
+    &:after {
+      display: none!important;
+    }
+  }
+}

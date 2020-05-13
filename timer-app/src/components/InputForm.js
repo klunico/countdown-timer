@@ -1,5 +1,6 @@
 import React from 'react';
 import Timer from './Timer.js';
+import '../css/InputForm.css';
 
 
 class InputForm extends React.Component {
@@ -8,7 +9,7 @@ class InputForm extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.state = {
-			eventName: "name",
+			eventName: "",
 			time: "00:00",
 			date: new Date(),
 			eventStarted: false
@@ -31,18 +32,18 @@ class InputForm extends React.Component {
 
 	render() {
 		return	(
-				<div>
-					<form>
+				<div className='input-form'>
+					<form >
 						<fieldset>
-							<legend>Enter event name</legend>
-								<label className='inputFields'>Name: <input  name="eventName" type="text" placeholder={this.state.eventName}  
-			            	onChange={this.handleChange} 
-			            	required />
+							<legend><strong>Enter event name</strong></legend>
+								<label className='input-fields'>
+									Name: <input  name="eventName" type="text" required placeholder={this.state.eventName}  
+			            	onChange={this.handleChange} />
 			            	<br />
-			            Date: <input  name="date" type="date"  required 
+			            Date: <input  name="date" type="date" required 
 			            	onChange={this.handleChange} 
 			            	/><br />
-			            Time: <input name="time" type="time"  placeholder={this.state.time}
+			            Time: <input name="time" type="time" placeholder={this.state.time}
 			            	onChange={this.handleChange} />
 			            	<br /><br />
 								</label>
@@ -51,6 +52,7 @@ class InputForm extends React.Component {
 									/>
 						</fieldset>
       		</form>	
+      		<br />
 					<Timer
 						eventName={this.state.eventName} 
 						eventDate={this.state.date}
@@ -58,7 +60,7 @@ class InputForm extends React.Component {
 						eventStarted={this.state.eventStarted}
 						 />
 				</div>
-			);
+		);
 	}
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/TimeNow.css'
 
 class TimeNow extends React.Component {
   constructor(props) {
@@ -21,8 +22,7 @@ class TimeNow extends React.Component {
   render () {
     const { date, time } = this.state;
     return (
-        <h3>It is <br /> 
-        {date}<br />
+        <h3>{date}<br />
         {time}</h3>
     );
   }
