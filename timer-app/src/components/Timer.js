@@ -12,7 +12,18 @@ const Timer = ({eventName, eventDate, eventTime, eventStarted}) => {
     });
 
 	const calculateTime = () => {
-	  const distance = Date.parse(eventDate, eventTime) - Date.parse(new Date());
+	  const now = Date.parse(new Date());
+	  const tomorrow = Date.parse(eventDate + "T" + eventTime);
+
+    const distance = tomorrow - now  
+		const stopCountdown = () => {
+			clearInterval(calculateTime);
+		} 
+
+  	if (distance === 0 ) {
+  		alert('Following event has been reached!');
+  		stopCountdown();
+  	}
 	  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
 	  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 	  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));

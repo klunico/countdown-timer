@@ -67,7 +67,7 @@ input[type=time] {
 }
 
 input[type=submit] {
-	padding: 10px 32px; 
+	padding: 8px 32px; 
 	font-size: 15px;
 	font-weight: bold;
 	color: darkred;
